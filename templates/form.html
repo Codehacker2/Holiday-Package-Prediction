@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Purchase Prediction | ML Analytics</title>
+  <meta name="description" content="Predict travel package purchase probability using machine learning">
+  <link rel="stylesheet" href="../static/index.css">
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>🌴 Travel Purchase Prediction</h1>
+      <p>Predict customer travel package purchase probability using advanced analytics</p>
+    </div>
+  </header>
+
+  <!-- Main Form Container -->
+  <main class="container">
+    <form id="predictionForm">
+      <!-- Personal Information -->
+      <section class="form-section">
+        <div class="section-header">
+          <h2>✈️ Personal Information</h2>
+          <p>Basic demographic details</p>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="age">Age *</label>
+            <input type="number" id="age" name="age" required min="18" max="100" value="35">
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender *</label>
+            <select id="gender" name="gender" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="maritalStatus">Marital Status *</label>
+            <select id="maritalStatus" name="maritalStatus" required>
+              <option value="Married">Married</option>
+              <option value="Single">Single</option>
+              <option value="Divorced">Divorced</option>
+            </select>
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="numberOfChildren">Number of Children *</label>
+            <input type="number" id="numberOfChildren" name="numberOfChildren" required min="0" value="1">
+            <span class="error-message"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Professional & Financial -->
+      <section class="form-section">
+        <div class="section-header">
+          <h2>💼 Professional & Financial</h2>
+          <p>Income and career information</p>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="monthlyIncome">Monthly Income *</label>
+            <input type="number" id="monthlyIncome" name="monthlyIncome" required min="0" value="50000">
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="occupation">Occupation *</label>
+            <select id="occupation" name="occupation" required>
+              <option value="Salaried">Salaried</option>
+              <option value="Small Business">Small Business</option>
+              <option value="Large Business">Large Business</option>
+              <option value="Free Lancer">Free Lancer</option>
+            </select>
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="designation">Designation *</label>
+            <select id="designation" name="designation" required>
+              <option value="Executive">Executive</option>
+              <option value="Manager" selected>Manager</option>
+              <option value="Senior Manager">Senior Manager</option>
+              <option value="AVP">AVP</option>
+              <option value="VP">VP</option>
+            </select>
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="ownCar">Own Car *</label>
+            <select id="ownCar" name="ownCar" required>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+            <span class="error-message"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Travel Preferences -->
+      <section class="form-section">
+        <div class="section-header">
+          <h2>🏖️ Travel Preferences</h2>
+          <p>Travel history and preferences</p>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="numberOfTrips">Number of Trips *</label>
+            <input type="number" id="numberOfTrips" name="numberOfTrips" required min="0" value="2">
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="preferredStar">Preferred Property Star (1-5) *</label>
+            <input type="number" id="preferredStar" name="preferredStar" required min="1" max="5" value="4">
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="passport">Has Passport *</label>
+            <select id="passport" name="passport" required>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="productPitched">Product Pitched *</label>
+            <select id="productPitched" name="productPitched" required>
+              <option value="Basic">Basic</option>
+              <option value="Standard" selected>Standard</option>
+              <option value="Deluxe">Deluxe</option>
+              <option value="Super Deluxe">Super Deluxe</option>
+              <option value="King">King</option>
+            </select>
+            <span class="error-message"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interaction Details -->
+      <section class="form-section">
+        <div class="section-header">
+          <h2>📊 Interaction Details</h2>
+          <p>Sales pitch and follow-up information</p>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="typeOfContact">Type of Contact *</label>
+            <select id="typeOfContact" name="typeOfContact" required>
+              <option value="Self Enquiry" selected>Self Enquiry</option>
+              <option value="Company Invited">Company Invited</option>
+            </select>
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="pitchDuration">Duration of Pitch (minutes) *</label>
+            <input type="number" id="pitchDuration" name="pitchDuration" required min="0" value="15">
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="followups">Number of Follow-ups *</label>
+            <input type="number" id="followups" name="followups" required min="0" value="3">
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="satisfaction">Pitch Satisfaction (1-5) *</label>
+            <input type="number" id="satisfaction" name="satisfaction" required min="1" max="5" value="4">
+            <span class="error-message"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="btn-text">✨ Predict Purchase Probability</span>
+        <span class="btn-loader" style="display: none;">Processing...</span>
+      </button>
+    </form>
+
+    <!-- Results Section -->
+    <div id="resultSection" class="result-section" style="display: none;">
+      <div class="result-content">
+        <div class="result-icon" id="resultIcon"></div>
+        <div class="result-text">
+          <h2>Prediction Result</h2>
+          <p id="resultMessage"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Powered by Machine Learning • Travel Industry Analytics</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('predictionForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    const resultSection = document.getElementById('resultSection');
+    const resultIcon = document.getElementById('resultIcon');
+    const resultMessage = document.getElementById('resultMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Clear previous errors
+      document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+      document.querySelectorAll('.form-group').forEach(el => el.classList.remove('has-error'));
+      
+      // Validate form
+      let isValid = true;
+      const formData = new FormData(form);
+      
+      // Check required fields
+      for (let [key, value] of formData.entries()) {
+        const input = form.elements[key];
+        if (!value || value.trim() === '') {
+          isValid = false;
+          const formGroup = input.closest('.form-group');
+          formGroup.classList.add('has-error');
+          formGroup.querySelector('.error-message').textContent = 'This field is required';
+        }
+      }
+      
+      if (!isValid) {
+        return;
+      }
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoader.style.display = 'inline';
+      resultSection.style.display = 'none';
+      
+      // Simulate API call (replace with actual endpoint)
+      setTimeout(() => {
+        // Generate random prediction (replace with actual API response)
+        const score = Math.random();
+        const percentage = (score * 100).toFixed(1);
+        const isHighProbability = score > 0.5;
+        
+        // Show result
+        resultIcon.innerHTML = isHighProbability 
+          ? '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>'
+          : '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>';
+        
+        resultIcon.className = 'result-icon ' + (isHighProbability ? 'success' : 'warning');
+        
+        resultMessage.textContent = isHighProbability
+          ? `✅ High Purchase Probability (${percentage}%)`
+          : `⚠️ Low Purchase Probability (${percentage}%)`;
+        
+        resultSection.style.display = 'block';
+        resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        
+        // Reset button
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoader.style.display = 'none';
+      }, 1500);
+    });
+
+    // Add input validation on change
+    form.querySelectorAll('input, select').forEach(input => {
+      input.addEventListener('change', function() {
+        const formGroup = this.closest('.form-group');
+        formGroup.classList.remove('has-error');
+        formGroup.querySelector('.error-message').textContent = '';
+      });
+    });
+  </script>
+</body>
+</html>
