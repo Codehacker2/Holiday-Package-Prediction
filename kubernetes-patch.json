@@ -1,0 +1,14 @@
+{
+  "spec": {
+    "template": {
+      "spec": {
+        "containers": [
+          {
+            "name": "holiday-prediction",
+            "imagePullPolicy": "Never"
+          }
+        ]
+      }
+    }
+  }
+}
