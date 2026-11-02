@@ -4,3 +4,5 @@ joblib
 scikit-learn
 pandas
 numpy
+prometheus-client
+pytest
